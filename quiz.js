@@ -9,10 +9,9 @@ const choiceC = document.getElementById("C");
 const choiceD = document.getElementById("D");
 const end = document.getElementById("end");
 const score = document.getElementById("score");
-
+const retry = document.getElementById("retry");
 
 start.addEventListener("click", startQuiz);
-
 
 let questions = [{
     "Q": "Who are you?",
@@ -73,10 +72,22 @@ function checkAnswer(ans){
 
 function showScore(){
     end.style.display="block";
+    var img1 =document.createElement("img");
+    img1.src = "../Gifs/noPass.webp";
+    var img2 =document.createElement("img");
+    img2.src = "../Gifs/pass.gif";
 
     console.log(scoreTracker);
     console.log(questions.length)
     let scorePercentage = Math.round(100 * scoreTracker / questions.length);
     score.innerHTML = "<p>" + scorePercentage + "%</p>";
+
+    if(scorePercentage >= 50){
+        end.appendChild(img2);
+    }else{
+        end.appendChild(img1);
+    }
 }
+
+
 
