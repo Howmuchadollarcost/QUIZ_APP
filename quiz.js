@@ -35,6 +35,8 @@ function startQuiz() {
     start.style.display = "none";
     renderQuestions();
     quizContainer.style.display = "block";
+    question.style.display = "block";
+    question.style.fontSize = "2em";
 }
 
 let lastQuestion = questions.length - 1;
@@ -64,6 +66,7 @@ function checkAnswer(ans){
         renderQuestions();
     }else{
         quizContainer.style.display="none";
+        question.style.display="none";
         showScore();
     }
 }
