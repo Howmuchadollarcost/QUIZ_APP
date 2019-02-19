@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>QUIZ</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <div id="quiz">
+        <div id="start">
+            <h2>START GAME</h2>
+        </div>
+        <div id="quizContainer">
+            <div id="question">
+                <h3>Question</h3>
+            </div>
+
+            <div id="choices">
+                <div class="choice" id="A" onclick="checkAnswer('A')">A</div>
+                <div class="choice" id="B" onclick="checkAnswer('B')">B</div>
+                <div class="choice" id="C" onclick="checkAnswer('C')">C</div>
+                <div class="choice" id="D" onclick="checkAnswer('D')">D</div>
+            </div>
+        </div>
+        <div id="end">
+            <h3>Score</h3>
+            <div id="score"></div>
+        </div>
+    </div>
+    <script src="quiz.js"></script>
+</body>
+
+</html>
