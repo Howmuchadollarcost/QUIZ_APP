@@ -12,6 +12,9 @@ const score = document.getElementById("score");
 const retry = document.getElementById("retry");
 
 start.addEventListener("click", startQuiz);
+retry.addEventListener("click", ()=>{
+    location.reload();
+})
 
 let questions = [{
     "Q": "Who are you?",
