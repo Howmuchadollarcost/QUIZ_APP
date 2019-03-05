@@ -12,23 +12,30 @@ const score = document.getElementById("score");
 const retry = document.getElementById("retry");
 
 start.addEventListener("click", startQuiz);
-retry.addEventListener("click", ()=>{
+retry.addEventListener("click", () => {
     location.reload();
 })
 
 let questions = [{
-    "Q": "Who are you?",
+    "Q": "1) Who are you?",
     "A": "Obama",
     "B": "Trump",
     "C": "Neba",
     "D": "Trauma",
     "Ans": "C"
 }, {
-    "Q": "Mama, ",
+    "Q": "2) Mama, ",
     "A": "There goes",
     "B": "That",
     "C": "Man",
     "D": "!",
+    "Ans": "B"
+}, {
+    "Q": "3) Scoop, ",
+    "A": "Slap",
+    "B": "De poop",
+    "C": "Snap",
+    "D": "tatt",
     "Ans": "B"
 }]
 
@@ -54,30 +61,30 @@ function renderQuestions() {
     choiceD.innerHTML = questions[questionNow].D;
 }
 
-function checkAnswer(ans){
-    if(questions[questionNow].Ans == ans){
+function checkAnswer(ans) {
+    if (questions[questionNow].Ans == ans) {
         console.log("Correct");
         scoreTracker++;
-    }else{
+    } else {
         console.log("Wrong")
     }
 
 
-    if(questionNow < lastQuestion){
+    if (questionNow < lastQuestion) {
         questionNow++;
         renderQuestions();
-    }else{
-        quizContainer.style.display="none";
-        question.style.display="none";
+    } else {
+        quizContainer.style.display = "none";
+        question.style.display = "none";
         showScore();
     }
 }
 
-function showScore(){
-    end.style.display="block";
-    var img1 =document.createElement("img");
+function showScore() {
+    end.style.display = "block";
+    var img1 = document.createElement("img");
     img1.src = "../Gifs/noPass.webp";
-    var img2 =document.createElement("img");
+    var img2 = document.createElement("img");
     img2.src = "../Gifs/pass.gif";
 
     console.log(scoreTracker);
@@ -85,12 +92,9 @@ function showScore(){
     let scorePercentage = Math.round(100 * scoreTracker / questions.length);
     score.innerHTML = "<p>" + scorePercentage + "%</p>";
 
-    if(scorePercentage >= 50){
+    if (scorePercentage >= 50) {
         end.appendChild(img2);
-    }else{
+    } else {
         end.appendChild(img1);
     }
 }
-
-
-
